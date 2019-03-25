@@ -1,0 +1,42 @@
+# This is an example recipe
+# Comments are specified by the hash character
+# Each command is a function, and is in the format (command, object, params)
+# Params are separated by spaces
+# s1 = song 1, s2 = song 2
+
+# REPEAT command will repeat a part of the song a certain number of times
+#   First param is number of seconds to repeat
+#   Second param is how many times to repeat
+#   Third param is where in the song to apply the effect in seconds
+repeat s1 1 5 18
+
+# FADE command will fade a song in or out
+#   First param is number of seconds to fade
+#   Second param is "IN" or "OUT" depending on whether the fade is in or out
+#   Third param is where in the song to apply the effect in seconds
+#   Fourth param (optional) is number of decibels to fade for, default is 10dB
+fade s1 15 IN 0
+fade s2 5 OUT 0 20
+fade s1 5 OUT 20 20
+fade s2 10 IN 15 20
+fade s2 15 IN 25
+fade s1 10 IN 40 20
+fade s2 10 OUT 40
+
+# SPEED command will speed up or slow down a song
+#   First param is number of seconds to speed up/slow down
+#   Second param is "FAST" or "SLOW" depending on whether one wants to speed up or slow down the song
+#   Third param is where in the song to apply the effect in seconds
+#   Fourth param (optional) is the speed factor, default is 1.5
+speed s1 1.5 FAST 10 1.2
+speed s1 1.5 FAST 11 1.3
+speed s1 1.5 FAST 12 1.4
+speed s1 1.5 FAST 13 1.5
+speed s1 1.5 FAST 14 1.6
+speed s1 10 FAST 15 2.0
+speed s2 10 SLOW 30
+
+# SLICE command will cut the remix after a certain number of seconds
+# This command can be called on either object
+#   First param is number of seconds the remix is
+slice s1 55
